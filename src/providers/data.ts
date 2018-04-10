@@ -24,8 +24,10 @@ export class Data {
       
       for (var i = restaurants.length - 1; i >= 0; i--) {
          var myrestaurant = {
-           name:restaurants[i].get("name"),
-           address:restaurants[i].get("address"),
+            name:restaurants[i].get("name"),
+            address:restaurants[i].get("address"),
+            category:restaurants[i].get("category"),
+            url:restaurants[i].get("url"),
          }
          items.push(myrestaurant);
       }
@@ -51,7 +53,9 @@ export class Data {
       for (var i = favs.length - 1; i >= 0; i--) {
          var myfavs = {
            name:favs[i].get("name"),
-           address:favs[i].get("address")
+           address:favs[i].get("address"),
+           category:favs[i].get("category"),
+           url:favs[i].get("url")
          }
          items.push(myfavs);
       }
@@ -63,13 +67,14 @@ export class Data {
     });
 
     return items;
-
   }
 
-  addToFav(name, address){
+  addToFav(name, address, category, url){
     let fav={
       name: name,
-      address: address
+      address: address,
+      category: category,
+      url: url
     };
     this.saveFav(fav);
   }
@@ -85,8 +90,11 @@ export class Data {
     f.save(null, {
       success: function(myfav) {
         let newFav = {
+          amount:fav.amount,
           name:fav.name,
-          amount:fav.amount
+          address:fav.address,
+          category:fav.category,
+          url:fav.url
         };
 
         self.events.publish("newfav", newFav);
@@ -97,7 +105,5 @@ export class Data {
       }
     });
   }
-
-
 
 }

@@ -8,15 +8,14 @@
   <ion-list>
       <ion-item *ngFor="let item of items">
         <ion-card (click)="viewItem(item)">
+          <img src="{{item.url}}"  height="150" width="100" />
           <ion-card-content>
             <ion-card-title >
               {{item.name}}
             </ion-card-title> 
-              {{item.address}}
+              {{item.address}}, {{item.category}}
           </ion-card-content>
         </ion-card> 
       </ion-item>
   </ion-list>
-
-
 </ion-content>
