@@ -7,7 +7,7 @@
 <ion-content padding>
   <ion-list>
       <ion-item *ngFor="let item of items">
-        <ion-card>
+        <ion-card (click)="viewItem(item)">
           <ion-card-content>
             <ion-card-title >
               {{item.name}}

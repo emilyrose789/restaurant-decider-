@@ -7,5 +7,19 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
+
+    <ion-card *ngFor="let item of items" (click)="viewFav(item)">
+	  <ion-card-content>
+	    <ion-card-title>
+	      {{item.name}}
+	    </ion-card-title> 
+	      <p>
+	        {{item.address}}
+	      </p>
+	  </ion-card-content>
+	</ion-card> 
+
+  </ion-list>
 
 </ion-content>

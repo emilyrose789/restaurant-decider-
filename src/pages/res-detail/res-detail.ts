@@ -9,12 +9,20 @@ import { Data } from '../../providers/data';
 })
 export class ResDetailPage {
 
+  name;
+  address;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController, public dataService: Data ) {
 
   }
 
   ionViewDidLoad() {
-  
+    this.name = this.navParams.get('item').name;
+    this.address = this.navParams.get('item').address; 
+  }
+
+  addToFav(){
+    this.dataService.addToFav(this.name, this.address);   
   }
    
   exit() {

@@ -10,16 +10,20 @@ import { FavDetailPage} from '../fav-detail/fav-detail';
 })
 export class FavPage {
 
-  constructor(public events:Events,public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
+  items = [];
 
+  constructor(public events:Events,public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
+  	this.items = this.dataService.getFav();
   }
 
   ionViewDidLoad() {
    
   }
-  
-  viewOrder() {
-    this.navCtrl.push(FavDetailPage);
-  }
+
+  viewFav(fav) {
+    this.navCtrl.push(FavDetailPage, {
+      fav: fav
+    });
+  }  
 
 }

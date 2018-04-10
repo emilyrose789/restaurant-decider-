@@ -7,12 +7,16 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'fav-detail.html',
 })
 export class FavDetailPage {
+  name;
+  address;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public view: ViewController) {
   
   }
 
   ionViewDidLoad() {
+  	this.name = this.navParams.get('fav').name;
+  	this.address = this.navParams.get('fav').address;
 
   }
 

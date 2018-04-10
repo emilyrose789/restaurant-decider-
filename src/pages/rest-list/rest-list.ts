@@ -21,8 +21,10 @@ export class RestListPage {
    
   }
 
-  viewItem() {
-    this.navCtrl.push(ResDetailPage);
+  viewItem(item) {
+    this.navCtrl.push(ResDetailPage, {
+      item: item
+    });
   }
 
 }

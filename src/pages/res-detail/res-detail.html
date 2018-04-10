@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="primary" >
-    <ion-title> Restauraunt Detail </ion-title>
+    <ion-title> {{name}} </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="exit()"><ion-icon name="cart"></ion-icon></button>
     </ion-buttons>
@@ -10,5 +10,8 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-card-content>
+    {{address}}
+    <button ion-button icon-only (click)="addToFav()"><ion-icon name="star"></ion-icon></button>
+  </ion-card-content>
 </ion-content>
