@@ -5,8 +5,8 @@ import { Events } from 'ionic-angular';
 
 @Injectable()
 export class Data {
-  private parseAppId: string = '05ZRk2EOQ0oY2eHWNp6e6dAFRBx13zC9Fxg08lmr';
-  private parseJSKey: string='Ews8xFPgrq4aQNYJSx9SaSsLlYcvTwYfDiB0rnvn'
+  private parseAppId: string = 'GhAIfNSL3BgpdxjT0rR3ezK93wPIr8GlKu4WegEb';
+  private parseJSKey: string='gSVDOxjt13PMQ7575O8QMPF9B2AQVNZm4CFg4fDP'
   private parseServerUrl: string = 'https://parseapi.back4app.com/';
 	
   constructor(public Storage: Storage,public events:Events){
