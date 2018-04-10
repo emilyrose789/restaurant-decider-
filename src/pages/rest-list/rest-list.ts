@@ -11,9 +11,10 @@ import { ResDetailPage } from '../res-detail/res-detail';
   templateUrl: 'rest-list.html'
 })
 export class RestListPage {
+  items = [];
 
   constructor(public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
-  
+  	this.items = this.dataService.getRestList();  
   }
 
   ionViewDidLoad() {

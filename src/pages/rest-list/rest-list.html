@@ -5,5 +5,18 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
+      <ion-item *ngFor="let item of items">
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title >
+              {{item.name}}
+            </ion-card-title> 
+              {{item.address}}
+          </ion-card-content>
+        </ion-card> 
+      </ion-item>
+  </ion-list>
+
 
 </ion-content>

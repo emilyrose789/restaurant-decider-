@@ -14,4 +14,30 @@ export class Data {
     Parse.serverURL = this.parseServerUrl;
   }
 
+  getRestList() {
+    const Restaurant = Parse.Object.extend('Restaurant');
+    let query = new Parse.Query(Restaurant);
+    query.limit(1000);
+    var items=[];
+    query.find().then((restaurants) => {
+      console.log(restaurants.length);
+      
+      for (var i = restaurants.length - 1; i >= 0; i--) {
+         var myrestaurant = {
+           name:restaurants[i].get("name"),
+           address:restaurants[i].get("address"),
+         }
+         items.push(myrestaurant);
+      }
+      console.log(items.length);
+      return items;
+
+    }, (error) => {
+      console.log("error");
+    });
+
+    return items;
+  }
+
+
 }
