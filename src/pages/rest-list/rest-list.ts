@@ -21,7 +21,7 @@ export class RestListPage {
   }
 
   ionViewDidLoad() {
-  
+
   }
 
   categoryFilter(categoryfilter){
@@ -31,6 +31,10 @@ export class RestListPage {
         this.filteredItems.push(this.items[i]);
       }
     }
+  }
+
+  clearFilters(){
+    this.filteredItems = this.dataService.getRestList(); 
   }
 
   viewItem(item) {

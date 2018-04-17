@@ -7,12 +7,13 @@
 <ion-content padding>
 
   <div>
-    <ion-label>Filter By Category</ion-label>
+    <ion-label>Category</ion-label>
     <ion-select [(ngModel)]="categoryfilter">
       <ion-option value="Mexican">Mexican</ion-option>
       <ion-option value="Wings">Wings</ion-option>
     </ion-select>
-    <button ion-button full (click)="categoryFilter(categoryfilter)">Save</button>
+    <button ion-button half (click)="categoryFilter(categoryfilter)" style="float: left; width: 45%;">Save Filters</button>
+    <button ion-button half (click)="clearFilters()" style="float: right; width: 45%;">Clear Filters</button>
   </div>
 
   <ion-list>
