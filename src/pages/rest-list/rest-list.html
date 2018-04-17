@@ -12,14 +12,14 @@
       <ion-option value="Mexican">Mexican</ion-option>
       <ion-option value="Wings">Wings</ion-option>
     </ion-select>
-    <button ion-button half (click)="categoryFilter(categoryfilter)" style="float: left; width: 45%;">Save Filters</button>
-    <button ion-button half (click)="clearFilters()" style="float: right; width: 45%;">Clear Filters</button>
+    <button ion-button half (click)="categoryFilter(categoryfilter)" style="float: left; height: 30px; width: 45%;">Save Filters</button>
+    <button ion-button half (click)="clearFilters()" style="float: right; height: 30px; width: 45%;">Clear Filters</button>
   </div>
 
   <ion-list>
       <ion-item *ngFor="let filteredItem of filteredItems">
         <ion-card (click)="viewItem(filteredItem)">
-          <img src="{{filteredItem.url}}"  height="150" width="100" />
+          <img src="{{filteredItem.url}}" style= "height:90px;" />
           <ion-card-content>
             <ion-card-title >
               {{filteredItem.name}}

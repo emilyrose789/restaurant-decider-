@@ -17,7 +17,6 @@ export class RestListPage {
   constructor(public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
     this.items = this.dataService.getRestList(); 
     this.filteredItems = this.dataService.getRestList(); 
-    console.log("items length " + this.items.length);
   }
 
   ionViewDidLoad() {
