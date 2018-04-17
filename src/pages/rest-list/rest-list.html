@@ -5,15 +5,25 @@
 </ion-header>
 
 <ion-content padding>
+
+  <div>
+    <ion-label>Filter By Category</ion-label>
+    <ion-select [(ngModel)]="categoryfilter">
+      <ion-option value="Mexican">Mexican</ion-option>
+      <ion-option value="Wings">Wings</ion-option>
+    </ion-select>
+    <button ion-button full (click)="categoryFilter(categoryfilter)">Save</button>
+  </div>
+
   <ion-list>
-      <ion-item *ngFor="let item of items">
-        <ion-card (click)="viewItem(item)">
-          <img src="{{item.url}}"  height="150" width="100" />
+      <ion-item *ngFor="let filteredItem of filteredItems">
+        <ion-card (click)="viewItem(filteredItem)">
+          <img src="{{filteredItem.url}}"  height="150" width="100" />
           <ion-card-content>
             <ion-card-title >
-              {{item.name}}
+              {{filteredItem.name}}
             </ion-card-title> 
-              {{item.address}}, {{item.category}}
+              {{filteredItem.address}}, {{filteredItem.category}}
           </ion-card-content>
         </ion-card> 
       </ion-item>

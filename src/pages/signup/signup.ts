@@ -18,7 +18,7 @@ export class SignupPage {
   }
 
   ionViewDidLoad() {
-    console.log('Initiate Signup');
+
   }
 
   public doRegister() {

@@ -19,9 +19,7 @@ export class Data {
     let query = new Parse.Query(Restaurant);
     query.limit(1000);
     var items=[];
-    query.find().then((restaurants) => {
-      console.log(restaurants.length);
-      
+    query.find().then((restaurants) => {      
       for (var i = restaurants.length - 1; i >= 0; i--) {
          var myrestaurant = {
             name:restaurants[i].get("name"),
@@ -31,7 +29,6 @@ export class Data {
          }
          items.push(myrestaurant);
       }
-      console.log(items.length);
       return items;
 
     }, (error) => {
@@ -47,9 +44,7 @@ export class Data {
     query.limit(1000);
     query.include("restaurant");
     var items=[];
-    query.find().then((favs) => {
-      console.log(favs.length);
-      
+    query.find().then((favs) => {      
       for (var i = favs.length - 1; i >= 0; i--) {
          var myfavs = {
            name:favs[i].get("name"),
@@ -59,7 +54,6 @@ export class Data {
          }
          items.push(myfavs);
       }
-      console.log(items.length);
       return items;
 
     }, (error) => {

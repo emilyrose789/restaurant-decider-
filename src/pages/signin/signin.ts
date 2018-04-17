@@ -19,7 +19,7 @@ export class SigninPage {
   }
 
   ionViewDidLoad() {
-    console.log('Initiated Signin');
+
   }
 
   public doSignin() {
@@ -28,7 +28,6 @@ export class SigninPage {
     success: function(user) {
       console.log("logged in "+user.get("username"));
       self.navCtrl.setRoot(TabsPage);
-
     },
     error: function(user, error) {
     }
