@@ -10,9 +10,8 @@ import { RestListPage } from '../pages/rest-list/rest-list';
 import { ResDetailPage } from '../pages/res-detail/res-detail';
 import { FavPage } from '../pages/fav/fav';
 import { FavDetailPage } from '../pages/fav-detail/fav-detail';
-import { WheelPage } from '../pages/wheel/wheel';
 import { TabsPage } from '../pages/tabs/tabs';
-import { HelpPage } from '../pages/help/help'; 
+import { HelpPage } from '../pages/help/help';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +27,6 @@ import { Data } from '../providers/data';
     ResDetailPage,
     FavPage,
     FavDetailPage,
-    WheelPage,
     HelpPage
   ],
   imports: [
@@ -46,7 +44,6 @@ import { Data } from '../providers/data';
     ResDetailPage,
     FavPage,
     FavDetailPage,
-    WheelPage,
     HelpPage
   ],
   providers: [
