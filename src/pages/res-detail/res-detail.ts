@@ -13,6 +13,7 @@ export class ResDetailPage {
   address;
   category;
   url;
+  userid; 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController, public dataService: Data ) {
 

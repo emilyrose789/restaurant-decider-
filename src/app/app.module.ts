@@ -12,6 +12,7 @@ import { FavPage } from '../pages/fav/fav';
 import { FavDetailPage } from '../pages/fav-detail/fav-detail';
 import { WheelPage } from '../pages/wheel/wheel';
 import { TabsPage } from '../pages/tabs/tabs';
+import { HelpPage } from '../pages/help/help'; 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,7 +28,8 @@ import { Data } from '../providers/data';
     ResDetailPage,
     FavPage,
     FavDetailPage,
-    WheelPage
+    WheelPage,
+    HelpPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { Data } from '../providers/data';
     ResDetailPage,
     FavPage,
     FavDetailPage,
-    WheelPage
+    WheelPage,
+    HelpPage
   ],
   providers: [
     StatusBar,
