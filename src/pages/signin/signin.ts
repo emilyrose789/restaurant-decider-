@@ -4,6 +4,7 @@ import { Parse } from 'parse';
 import { Data } from '../../providers/data';
 import { TabsPage } from '../tabs/tabs';
 import { SignupPage } from '../signup/signup';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-signin',
@@ -14,7 +15,7 @@ export class SigninPage {
   password: string = '';
   username: string = '';
 
-  constructor(public navCtrl: NavController, data:Data, private loadCtrl: LoadingController) { 
+  constructor(public navCtrl: NavController, data:Data, private loadCtrl: LoadingController, private alertCtrl: AlertController) {
 
   }
 
@@ -30,6 +31,11 @@ export class SigninPage {
       self.navCtrl.setRoot(TabsPage);
     },
     error: function(user, error) {
+      let alert = self.alertCtrl.create({
+        title: 'Username or Password Invalid',
+        buttons: ['Ok']
+      });
+      alert.present();
     }
   });
 
