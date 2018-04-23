@@ -3,7 +3,7 @@ import { ModalController, NavController, NavParams } from 'ionic-angular';
 import { Data } from '../../providers/data';
 import { Events } from 'ionic-angular';
 import { FavDetailPage} from '../fav-detail/fav-detail';
-import { HelpPage } from '../help/help'; 
+import { SettingsPage } from '../settings/settings';
 import { Parse } from 'parse';
 
 @Component({
@@ -21,23 +21,23 @@ export class FavPage {
   ionViewWillEnter(){
     this.favorites = [];
     this.favorites = this.dataService.getFav();
-        
+
   }
   ionViewDidLoad() {
-   
+
   }
 
   viewFav(fav) {
     this.navCtrl.push(FavDetailPage, {
       fav: fav
     });
-  }  
+  }
 
    deleteFav(fav) {
-     fav.destroy({}); 
+     fav.destroy({});
     }
 
-getHelp(){
-    this.navCtrl.setRoot(HelpPage); 
+getSettings(){
+    this.navCtrl.setRoot(SettingsPage);
   }
 }

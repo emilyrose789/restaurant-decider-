@@ -1,0 +1,21 @@
+
+<ion-header>
+
+  <ion-navbar color = "primary">
+    <ion-title>Settings</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="close()"><ion-icon name="arrow-back"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item (click) = "getHelp()">
+    Help Page
+  </ion-item>
+  <ion-item (click) = "presentAlert()">
+    Sign Out
+  </ion-item>
+</ion-content>

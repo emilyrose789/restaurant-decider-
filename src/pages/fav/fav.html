@@ -3,10 +3,10 @@
   <ion-navbar color="primary">
     <ion-title>Favorites</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click) = "getHelp()"><ion-icon name="help"></ion-icon></button>
+      <button ion-button icon-only (click) = "getSettings()"><ion-icon name="cog"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
-  
+
 </ion-header>
 
 <ion-content padding>
@@ -19,7 +19,7 @@
 	  	{{fav.address}}
 	  <br/>
 	</ion-item>
-	
+
 	<ion-item-options side = "left">
       <button ion-button color ="danger" (click) = deleteFav(fav)><ion-icon name = "trash"></ion-icon> Delete</button>
     </ion-item-options>
@@ -27,8 +27,8 @@
     <ion-item-options side = "right">
 	      <button ion-button color = "secondary"><ion-icon name = "brush"></ion-icon>Edit</button>
 	</ion-item-options>
-	
-	</ion-item-sliding> 
+
+	</ion-item-sliding>
 
   </ion-list>
 

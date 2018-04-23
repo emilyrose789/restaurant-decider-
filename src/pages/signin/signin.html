@@ -1,4 +1,4 @@
-<ion-content padding-top>
+<ion-content class = "bg-style" padding-top>
 
   <p class="logo">
     <img src="../../assets/imgs/logohead.png" />
@@ -7,18 +7,19 @@
   <form (submit)="doSignin()">
     <ion-list inset padding>
 
-      <ion-item>
-        <ion-label stacked>Username</ion-label>
+      <ion-item color="transparent">
+        <ion-label stacked>Username:</ion-label>
         <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
       </ion-item>
+      <br/>
       <ion-item>
-        <ion-label stacked>Password</ion-label>
+        <ion-label stacked>Password:</ion-label>
         <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
       </ion-item>
-      
+
       <div padding>
         <button ion-button color="accent" block>Login</button>
-        <p style="text-align: center">Don't have an acccount? <a [navPush]="registerPage">Signup</a></p>
+        <p style="text-align: center">Don't have an account? <a [navPush]="registerPage">Signup</a></p>
       </div>
 
     </ion-list>
