@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { Parse } from 'parse';
 import { Data } from '../../providers/data';
 import { TabsPage } from '../tabs/tabs';
@@ -14,7 +14,7 @@ export class SigninPage {
   password: string = '';
   username: string = '';
 
-  constructor(public navCtrl: NavController, data:Data, private loadCtrl: LoadingController) { 
+  constructor(public navCtrl: NavController, data:Data) { 
 
   }
 
