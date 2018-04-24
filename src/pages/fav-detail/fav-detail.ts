@@ -9,6 +9,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 export class FavDetailPage {
   name;
   address;
+  url;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public view: ViewController) {
   
@@ -16,8 +17,8 @@ export class FavDetailPage {
 
   ionViewDidLoad() {
   	this.name = this.navParams.get('fav').name;
-  	this.address = this.navParams.get('fav').address;
-
+    this.address = this.navParams.get('fav').address;
+    this.url = this.navParams.get('fav').url;
   }
 
   close() {

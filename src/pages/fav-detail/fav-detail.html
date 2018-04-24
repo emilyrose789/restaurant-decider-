@@ -1,19 +1,16 @@
 <ion-header>
 
   <ion-navbar color="primary" >
-    <ion-title> My Favorites </ion-title> 
+    <ion-title> {{name}} </ion-title> 
   </ion-navbar>
 
 </ion-header>
 
 <ion-content>
   <ion-card>
-    <ion-card-content>
-      <ion-card-title>
-        {{name}}
-      </ion-card-title>
-      {{address}}
-    </ion-card-content>
-  </ion-card>
-
+    <img src="{{url}}"  height="150" width="100" />
+      <ion-card-content>
+        {{address}}, {{category}} 
+      </ion-card-content>        
+  </ion-card> 
 </ion-content>
