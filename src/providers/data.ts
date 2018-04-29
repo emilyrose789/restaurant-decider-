@@ -26,6 +26,7 @@ export class Data {
             address:restaurants[i].get("address"),
             category:restaurants[i].get("category"),
             url:restaurants[i].get("url"),
+            price:restaurants[i].get("price")
          }
          items.push(myrestaurant);
       }

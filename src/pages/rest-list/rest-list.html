@@ -1,20 +1,33 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>List of Restauraunts in Your Area</ion-title>
+    <ion-title>Discover Restaurants</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  
+  <div class="filters">
+  
+    <label>Category:</label>
+    <select [(ngModel)]="categoryfilter" style="width: 33%">
+      <option value="category"></option>
+      <option *ngFor="let item of items" value="{{item.category}}">{{item.category}}</option>
+    </select>
 
-  <div>
-    <ion-label>Category</ion-label>
-    <ion-select [(ngModel)]="categoryfilter">
-      <ion-option value="Mexican">Mexican</ion-option>
-      <ion-option value="Wings">Wings</ion-option>
-    </ion-select>
-    <button ion-button half (click)="categoryFilter(categoryfilter)" style="float: left; height: 30px; width: 45%;">Save Filters</button>
-    <button ion-button half (click)="clearFilters()" style="float: right; height: 30px; width: 45%;">Clear Filters</button>
+    <label>Price:</label>
+    <select [(ngModel)]="pricefilter" style="width: 33%">
+      <option value="price"></option>
+      <option value="$"> $ </option>
+      <option value="$ $"> $ $ </option>
+      <option value="$ $ $"> $ $ $ </option>
+      <option value="$ $ $ $"> $ $ $ $ </option>
+      <option value="$ $ $ $ $"> $ $ $ $ $ </option>
+    </select>
+
   </div>
+
+  <button ion-button half (click)="filter(categoryfilter, pricefilter)" style="float: left; height: 30px; width: 45%;">Save Filters</button>
+  <button ion-button half (click)="clearFilters()" style="float: right; height: 30px; width: 45%;">Clear Filters</button>
 
   <ion-list>
       <ion-item *ngFor="let filteredItem of filteredItems">
@@ -22,7 +35,7 @@
           <img src="{{filteredItem.url}}" style= "height:90px;" />
           <ion-card-content>
             <ion-card-title >
-              {{filteredItem.name}}
+              {{filteredItem.name}}, {{filteredItem.price}}
             </ion-card-title> 
               {{filteredItem.address}}, {{filteredItem.category}}
           </ion-card-content>
