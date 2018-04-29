@@ -3,10 +3,18 @@
   <ion-navbar color="primary">
     <ion-title>Favorites</ion-title>
   </ion-navbar>
-  
+
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="background">
+
+
+
+
+
+  <button ion-button class="center" style="width :75% ;  margin-left: auto; margin-right: auto; display: block;" color="primary" (click)="presentLoadingCustom()">SPIN</button>
+
+
   <ion-list>
 
     <ion-card *ngFor="let item of items" (click)="viewFav(item)">
@@ -14,10 +22,10 @@
           <ion-card-content>
             <ion-card-title >
               {{item.name}}
-            </ion-card-title> 
+            </ion-card-title>
               {{item.address}}, {{item.category}}
           </ion-card-content>
-	</ion-card> 
+	</ion-card>
 
   </ion-list>
 
