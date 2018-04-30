@@ -15,6 +15,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Data } from '../providers/data';
+import { SafePipe} from './SafePipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { Data } from '../providers/data';
     ResDetailPage,
     FavPage,
     FavDetailPage,
+    SafePipe,
   ],
   imports: [
     BrowserModule,

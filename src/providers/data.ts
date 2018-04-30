@@ -84,6 +84,7 @@ export class Data {
     return items;
   }
 
+
   addToFav(name, address, category, url){
     let fav={
       name: name,
