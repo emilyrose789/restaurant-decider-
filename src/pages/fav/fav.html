@@ -10,26 +10,19 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
+<ion-list>
 
-    <ion-item-sliding *ngFor="let fav of favorites" (click)="viewFav(fav)">
-	  <ion-item>
-	  	{{fav.name}}
-	  <br/>
-	  	{{fav.address}}
-	  <br/>
-	</ion-item>
-
-	<ion-item-options side = "left">
-      <button ion-button color ="danger" (click) = deleteFav(fav)><ion-icon name = "trash"></ion-icon> Delete</button>
-    </ion-item-options>
-
-    <ion-item-options side = "right">
-	      <button ion-button color = "secondary"><ion-icon name = "brush"></ion-icon>Edit</button>
-	</ion-item-options>
-
-	</ion-item-sliding>
+    <ion-card *ngFor="let fav of favorites" (click)="viewFav(fav)">
+        <img src="{{fav.url}}" style= "height:90px;" />
+          <ion-card-content>
+            <ion-card-title >
+              {{fav.name}}
+            </ion-card-title>
+              {{fav.address}}, {{fav.category}}
+          </ion-card-content>
+  </ion-card>
 
   </ion-list>
+
 
 </ion-content>
