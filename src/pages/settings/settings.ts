@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, App } from 'ionic-angular';
 import { HelpPage } from '../help/help';
 import { FavPage } from '../fav/fav';
 import { AlertController } from 'ionic-angular';
@@ -19,7 +19,7 @@ import { SigninPage } from '../signin/signin'
 })
 export class SettingsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
+  constructor(public app: App, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -37,7 +37,7 @@ export class SettingsPage {
     let alert = this.alertCtrl.create({
       title: 'Are you sure you want to sign out?',
       buttons: [{text: 'Yes', handler: () => {
-          this.navCtrl.setRoot(SigninPage);
+          this.app.getRootNav().setRoot(SigninPage);
         }}, {text:'No'}]
     });
     alert.present();
