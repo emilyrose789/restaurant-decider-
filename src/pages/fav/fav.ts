@@ -94,7 +94,4 @@ export class FavPage {
     this.navCtrl.setRoot(SettingsPage);
   }
 
-  logOut(){
-    this.app.getRootNav().setRoot(SigninPage);  }
-
 }
