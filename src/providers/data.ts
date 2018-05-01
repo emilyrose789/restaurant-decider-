@@ -8,7 +8,7 @@ export class Data {
   private parseAppId: string = 'GhAIfNSL3BgpdxjT0rR3ezK93wPIr8GlKu4WegEb';
   private parseJSKey: string='gSVDOxjt13PMQ7575O8QMPF9B2AQVNZm4CFg4fDP'
   private parseServerUrl: string = 'https://parseapi.back4app.com/';
-	
+
   constructor(public Storage: Storage,public events:Events){
     Parse.initialize(this.parseAppId, this.parseJSKey);
     Parse.serverURL = this.parseServerUrl;
@@ -19,7 +19,7 @@ export class Data {
     let query = new Parse.Query(Restaurant);
     query.limit(1000);
     var items=[];
-    query.find().then((restaurants) => {      
+    query.find().then((restaurants) => {
       for (var i = restaurants.length - 1; i >= 0; i--) {
          var myrestaurant = {
             name:restaurants[i].get("name"),
@@ -45,7 +45,7 @@ export class Data {
     query.limit(1000);
     query.include("restaurant");
     var items=[];
-    query.find().then((favs) => {      
+    query.find().then((favs) => {
       for (var i = favs.length - 1; i >= 0; i--) {
          var myfavs = {
            name:favs[i].get("name"),
@@ -64,6 +64,28 @@ export class Data {
     return items;
   }
 
+  getFavRand() {
+    const Favorite = Parse.Object.extend('Favorite');
+    let query = new Parse.Query(Favorite);
+    query.limit(1000);
+    query.include("restaurant");
+    var items=[];
+    query.find().then((favs) => {
+      for (var i = favs.length - 1; i >= 0; i--) {
+
+        items[i] =favs[i].get("name");
+
+      }
+      return items;
+
+    }, (error) => {
+      console.log("error");
+    });
+
+    return items;
+  }
+
+
   addToFav(name, address, category, url){
     let fav={
       name: name,
@@ -73,7 +95,7 @@ export class Data {
     };
     this.saveFav(fav);
   }
- 
+
   saveFav(fav){
     var Favorite = Parse.Object.extend("Favorite");
     var f = new Favorite();

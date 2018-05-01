@@ -1,18 +1,23 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>Discover Restaurants</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click) = "getSettings()"><ion-icon name="cog"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  
+
+  <ion-content padding class="background">
   <div class="filters">
-  
+
     <label>Category:</label>
     <select [(ngModel)]="categoryfilter" style="width: 33%">
       <option value="category"></option>
       <option *ngFor="let item of items" value="{{item.category}}">{{item.category}}</option>
     </select>
+
 
     <label>Price:</label>
     <select [(ngModel)]="pricefilter" style="width: 33%">
@@ -36,10 +41,10 @@
           <ion-card-content>
             <ion-card-title >
               {{filteredItem.name}}, {{filteredItem.price}}
-            </ion-card-title> 
+            </ion-card-title>
               {{filteredItem.address}}, {{filteredItem.category}}
           </ion-card-content>
-        </ion-card> 
+        </ion-card>
       </ion-item>
   </ion-list>
 </ion-content>

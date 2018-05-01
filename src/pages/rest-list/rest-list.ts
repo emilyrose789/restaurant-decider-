@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController, NavController, NavParams } from 'ionic-angular';
 import { Data } from '../../providers/data';
 import { ResDetailPage } from '../res-detail/res-detail';
+import { SettingsPage} from "../settings/settings";
 
 @Component({
   selector: 'page-rest-list',
@@ -12,8 +13,8 @@ export class RestListPage {
   filteredItems = [];
 
   constructor(public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
-    this.items = this.dataService.getRestList(); 
-    this.filteredItems = this.dataService.getRestList(); 
+    this.items = this.dataService.getRestList();
+    this.filteredItems = this.dataService.getRestList();
   }
 
   ionViewDidLoad() {
@@ -58,7 +59,7 @@ export class RestListPage {
   }
 
   clearFilters(){
-    this.filteredItems = this.dataService.getRestList(); 
+    this.filteredItems = this.dataService.getRestList();
   }
 
   viewItem(item) {
@@ -67,4 +68,7 @@ export class RestListPage {
     });
   }
 
+  getSettings(){
+    this.navCtrl.setRoot(SettingsPage);
+  }
 }

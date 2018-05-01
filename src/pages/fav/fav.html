@@ -2,11 +2,22 @@
 
   <ion-navbar color="primary">
     <ion-title>Favorites</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click) = "getSettings()"><ion-icon name="cog"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
-  
+
 </ion-header>
 
-<ion-content padding>
+<ion-content  padding class="background" >
+
+<iframe [src]="output | safe" width="380" height="380" scrolling="no" frameborder="0"></iframe>
+
+
+
+  <button ion-button class="center" style="width :75% ;  margin-left: auto; margin-right: auto; display: block;" color="primary" (click)="presentLoadingCustom()">SPIN</button>
+
+
   <ion-list>
 
     <ion-card *ngFor="let item of items" (click)="viewFav(item)">
@@ -14,10 +25,10 @@
           <ion-card-content>
             <ion-card-title >
               {{item.name}}
-            </ion-card-title> 
+            </ion-card-title>
               {{item.address}}, {{item.category}}
           </ion-card-content>
-	</ion-card> 
+	</ion-card>
 
   </ion-list>
 
