@@ -29,7 +29,7 @@ import { SafePipe} from './SafePipe';
     FavDetailPage,
     SafePipe,
     SettingsPage,
-    HelpPage
+    HelpPage,
     RestListPage,
     ResDetailPage,
     WheelPage,
