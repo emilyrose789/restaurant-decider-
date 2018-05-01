@@ -4,6 +4,7 @@ import { Data } from '../../providers/data';
 import { Events } from 'ionic-angular';
 import { FavDetailPage} from '../fav-detail/fav-detail';
 import { SigninPage } from '../signin/signin';
+import { SettingsPage} from "../settings/settings";
 
 @Component({
   selector: 'page-fav',
@@ -17,12 +18,12 @@ export class FavPage {
   length = 0;
   output = '';
  Favs = [];
-   
+
   constructor(public app: App, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public events:Events,public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
     this.items = this.dataService.getFav();
     this.randFavs = this.dataService.getFavRand();
     this.randInt = 0;
-   
+
   }
 
   ionViewDidLoad() {
@@ -34,7 +35,7 @@ export class FavPage {
   }
 
 
-   
+
   presentLoadingCustom() {
     let loading = this.loadingCtrl.create({
       spinner: 'hide',
@@ -69,7 +70,7 @@ export class FavPage {
     alert.present();
   }
 
- formWheel(){ 
+ formWheel(){
     this.output = "https://wheeldecide.com/e.php?c1=";
     console.log(this.randFavs.length);
      for (var i = 0; i<this.randFavs.length; i++) {
@@ -77,7 +78,7 @@ export class FavPage {
           this.output += this.randFavs[i] + '&c' + j + '=';
       }
       this.output += "&cols=FDB815,F05127,32A0DB,7FBA44&time=5";
-      
+
       console.log(this.output);
       return this.output;
 
@@ -87,6 +88,10 @@ export class FavPage {
     this.navCtrl.push(FavDetailPage, {
       fav: fav
     });
+  }
+
+  getSettings(){
+    this.navCtrl.setRoot(SettingsPage);
   }
 
   logOut(){
