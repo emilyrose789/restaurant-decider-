@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { Parse } from 'parse';
-import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-signup',
@@ -13,7 +12,7 @@ export class SignupPage {
   verify: string = '';
   email: string = '';
 
-  constructor(public navCtrl: NavController, private loadCtrl: LoadingController) { 
+  constructor(public navCtrl: NavController) { 
 
   }
 
