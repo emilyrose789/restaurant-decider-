@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { RestListPage } from '../rest-list/rest-list';
 import { FavPage } from '../fav/fav';
+import { WheelPage } from '../wheel/wheel';
+import { RestListPage } from '../rest-list/rest-list';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -8,7 +9,8 @@ import { FavPage } from '../fav/fav';
 export class TabsPage {
 
   tab1Root = FavPage;
-  tab2Root = RestListPage;
+  tab2Root = WheelPage;
+  tab3Root = RestListPage;
 
   constructor() {
 

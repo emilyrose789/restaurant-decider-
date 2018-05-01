@@ -6,10 +6,11 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
-import { RestListPage } from '../pages/rest-list/rest-list';
-import { ResDetailPage } from '../pages/res-detail/res-detail';
 import { FavPage } from '../pages/fav/fav';
 import { FavDetailPage } from '../pages/fav-detail/fav-detail';
+import { WheelPage } from '../pages/wheel/wheel';
+import { RestListPage } from '../pages/rest-list/rest-list';
+import { ResDetailPage } from '../pages/res-detail/res-detail';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HelpPage } from '../pages/help/help';
 import { SettingsPage } from '../pages/settings/settings';
@@ -24,13 +25,14 @@ import { SafePipe} from './SafePipe';
     TabsPage,
     SigninPage,
     SignupPage,
-    RestListPage,
-    ResDetailPage,
     FavPage,
     FavDetailPage,
     SafePipe,
     SettingsPage,
     HelpPage
+    RestListPage,
+    ResDetailPage,
+    WheelPage,
   ],
   imports: [
     BrowserModule,
@@ -43,12 +45,13 @@ import { SafePipe} from './SafePipe';
     TabsPage,
     SigninPage,
     SignupPage,
-    RestListPage,
-    ResDetailPage,
     FavPage,
     FavDetailPage,
     SettingsPage,
-    HelpPage
+    HelpPage,
+    RestListPage,
+    ResDetailPage,
+    WheelPage,
   ],
   providers: [
     StatusBar,
