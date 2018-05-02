@@ -11,13 +11,6 @@
 
 <ion-content  padding class="background" >
 
-<iframe [src]="output | safe" width="380" height="380" scrolling="no" frameborder="0"></iframe>
-
-
-
-  <button ion-button class="center" style="width :75% ;  margin-left: auto; margin-right: auto; display: block;" color="primary" (click)="presentLoadingCustom()">SPIN</button>
-
-
   <ion-list>
 
     <ion-card *ngFor="let item of items" (click)="viewFav(item)">
