@@ -6,13 +6,15 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content padding class="background" >
   <ion-card>
     <img src="{{url}}"  height="150" width="100" />
       <ion-card-content style = "font-size: 24px">
         Address: {{address}}
-        <br/>
+        <br>
         Category: {{category}}
+        <br>
+        Price: {{price}}
       </ion-card-content>
     <div text-center>
     <button ion-button (click)="addToFav()"><ion-icon name="star"></ion-icon>Add To Favorites</button>

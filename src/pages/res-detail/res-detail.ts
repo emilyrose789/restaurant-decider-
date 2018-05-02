@@ -13,6 +13,7 @@ export class ResDetailPage {
   address;
   category;
   url;
+  price;
   userid; 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController, public dataService: Data ) {
@@ -24,10 +25,11 @@ export class ResDetailPage {
     this.address = this.navParams.get('item').address; 
     this.category = this.navParams.get('item').category;
     this.url = this.navParams.get('item').url;
+    this.price = this.navParams.get('item').price;
   }
 
   addToFav(){
-    this.dataService.addToFav(this.name, this.address, this.category, this.url);   
+    this.dataService.addToFav(this.name, this.address, this.category, this.url, this.price);   
   }
    
   exit() {

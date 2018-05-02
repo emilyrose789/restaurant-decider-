@@ -7,9 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-
-  <ion-content padding class="background">
+<ion-content padding class="background">
   <div class="filters">
 
     <label>Category:</label>
@@ -17,7 +15,6 @@
       <option value="category"></option>
       <option *ngFor="let item of items" value="{{item.category}}">{{item.category}}</option>
     </select>
-
 
     <label>Price:</label>
     <select [(ngModel)]="pricefilter" style="width: 33%">
@@ -35,16 +32,15 @@
   <button ion-button half (click)="clearFilters()" style="float: right; height: 30px; width: 45%;">Clear Filters</button>
 
   <ion-list>
-      <ion-item *ngFor="let filteredItem of filteredItems">
-        <ion-card (click)="viewItem(filteredItem)">
-          <img src="{{filteredItem.url}}" style= "height:90px;" />
-          <ion-card-content>
-            <ion-card-title >
-              {{filteredItem.name}}, {{filteredItem.price}}
-            </ion-card-title>
-              {{filteredItem.address}}, {{filteredItem.category}}
-          </ion-card-content>
-        </ion-card>
-      </ion-item>
+    <ion-card *ngFor="let filteredItem of filteredItems" (click)="viewItem(filteredItem)">
+      <img src="{{filteredItem.url}}" style= "height:90px;" />
+      <ion-card-content>
+        <ion-card-title >
+          {{filteredItem.name}}, {{filteredItem.price}}
+        </ion-card-title>
+        {{filteredItem.address}}, {{filteredItem.category}}
+      </ion-card-content>
+    </ion-card>
   </ion-list>
+
 </ion-content>

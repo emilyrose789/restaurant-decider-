@@ -51,7 +51,8 @@ export class Data {
            name:favs[i].get("name"),
            address:favs[i].get("address"),
            category:favs[i].get("category"),
-           url:favs[i].get("url")
+           url:favs[i].get("url"),
+           price:favs[i].get("price")
          }
          items.push(myfavs);
       }
@@ -85,13 +86,13 @@ export class Data {
     return items;
   }
 
-
-  addToFav(name, address, category, url){
+  addToFav(name, address, category, url, price){
     let fav={
       name: name,
       address: address,
       category: category,
-      url: url
+      url: url,
+      price: price
     };
     this.saveFav(fav);
   }
@@ -102,16 +103,19 @@ export class Data {
 
     f.set("name", fav.name);
     f.set("address", fav.address);
+    f.set("category", fav.category);
+    f.set("url", fav.url);
+    f.set("price", fav.price);
 
     var self=this;
     f.save(null, {
       success: function(myfav) {
         let newFav = {
-          amount:fav.amount,
           name:fav.name,
           address:fav.address,
           category:fav.category,
-          url:fav.url
+          url:fav.url,
+          price:fav.price
         };
 
         self.events.publish("newfav", newFav);

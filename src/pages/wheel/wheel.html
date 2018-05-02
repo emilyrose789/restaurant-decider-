@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Wheel</ion-title>
+    <ion-title>Wheel of Favorites</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click) = "getSettings()"><ion-icon name="cog"></ion-icon></button>
     </ion-buttons>
@@ -9,7 +9,6 @@
 </ion-header>
 
 <ion-content  padding class="background" style="padding-top: 15%">
-
-  <iframe [src]="output | safe" width="380" height="380" scrolling="no" frameborder="0"></iframe>
-
+  <iframe [src]="output | safe" width="100%" height="380" scrolling="no" frameborder="0"></iframe>
+  <h1 style="color: white"> Spin the wheel to decide where to eat! </h1>
 </ion-content>

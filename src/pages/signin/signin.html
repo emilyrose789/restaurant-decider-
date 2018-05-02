@@ -7,12 +7,12 @@
   <form (submit)="doSignin()">
     <ion-list inset padding>
 
-      <ion-item color="transparent">
+      <ion-item color="transparent" style="border-radius: 5px">
         <ion-label>Username:</ion-label>
         <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
       </ion-item>
       <br/>
-      <ion-item>
+      <ion-item style="border-radius: 5px">
         <ion-label>Password:</ion-label>
         <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
       </ion-item>

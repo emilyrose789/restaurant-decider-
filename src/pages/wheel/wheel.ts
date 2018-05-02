@@ -3,8 +3,7 @@ import { App, ModalController, NavController, NavParams, LoadingController, Aler
 import { Data } from '../../providers/data';
 import { Events } from 'ionic-angular';
 import { FavDetailPage} from '../fav-detail/fav-detail';
-import { SigninPage } from '../signin/signin';
-import { SettingsPage} from "../settings/settings";
+import { SettingsPage } from '../settings/settings';
 
 @Component({
   selector: 'page-wheel',
@@ -22,18 +21,14 @@ export class WheelPage {
     this.items = this.dataService.getFav();
     this.randFavs = this.dataService.getFavRand();
     this.randInt = 0;
-
   }
 
   ionViewDidLoad() {
-
   }
+
   ionViewCanEnter(){
     this.presentLoadingCustom();
-
   }
-
-
 
   presentLoadingCustom() {
     let loading = this.loadingCtrl.create({
