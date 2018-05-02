@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar color="primary">
+    <ion-buttons left >
+      <button ion-button icon-only (click) = "presentLoadingCustom()"><ion-icon name="refresh"></ion-icon></button>
+    </ion-buttons>
     <ion-title>Wheel</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click) = "getSettings()"><ion-icon name="cog"></ion-icon></button>
@@ -12,5 +15,11 @@
 
   <iframe [src]="output | safe" width="380" height="380" scrolling="no" frameborder="0"></iframe>
 
-  <button ion-button class="center" style="width :75% ;  margin-left: auto; margin-right: auto; display: block;" color="primary" (click)="presentLoadingCustom2()">SPIN</button>
+
+  <div class="background2">
+    <p style="font-weight: bold; font-size: 20px; color: white;" absolute-drag>Press below for restaurant categories!!!</p>
+  </div>
+
+      <button ion-button class="center" style="width :75% ;  margin-left: auto; margin-right: auto; display: block;" color="primary" (click)="presentLoadingCustom2()">CATEGORIES</button>
+
 </ion-content>
