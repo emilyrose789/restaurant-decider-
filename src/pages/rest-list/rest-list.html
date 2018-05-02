@@ -33,7 +33,7 @@
 
   <ion-list>
     <ion-card *ngFor="let filteredItem of filteredItems" (click)="viewItem(filteredItem)">
-      <img src="{{filteredItem.url}}" style= "height:90px;" />
+      <img src="{{filteredItem.url}}" style= "height:160px;" />
       <ion-card-content>
         <ion-card-title >
           {{filteredItem.name}}, {{filteredItem.price}}
