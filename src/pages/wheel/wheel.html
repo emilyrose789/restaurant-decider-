@@ -1,5 +1,9 @@
 <ion-header>
   <ion-navbar color="primary">
+
+    <ion-buttons left >
+      <button ion-button icon-only (click) = "presentLoadingCustom()"><ion-icon name="refresh"></ion-icon></button>
+    </ion-buttons>
     <ion-title>Wheel of Favorites</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click) = "getSettings()"><ion-icon name="cog"></ion-icon></button>
@@ -9,6 +13,16 @@
 </ion-header>
 
 <ion-content  padding class="background" style="padding-top: 15%">
-  <iframe [src]="output | safe" width="100%" height="380" scrolling="no" frameborder="0"></iframe>
-  <h1 style="color: white"> Spin the wheel to decide where to eat! </h1>
+
+
+ <iframe [src]="output | safe" width="100%" height="380" scrolling="no" frameborder="0"></iframe>
+
+  <div class="background2">
+    <p style="font-weight: bold; font-size: 20px; color: white;" absolute-drag> Spin the wheel to decide where to eat!!!</p>
+    <p style="font-weight: bold; font-size: 20px; color: white;" absolute-drag> or press below for restaurant categories!!!</p>
+  </div>
+
+      <button ion-button class="center" style="width :75% ;  margin-left: auto; margin-right: auto; display: block;" color="primary" (click)="presentLoadingCustom2()">CATEGORIES</button>
+
+
 </ion-content>

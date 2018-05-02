@@ -14,13 +14,16 @@ export class WheelPage {
   randInt = 0;
   randFavs =[];
   length = 0;
+  length2 = 0;
   output = '';
-  Favs = [];
+  categ = [];
 
   constructor(public app: App, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public events:Events,public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
     this.items = this.dataService.getFav();
     this.randFavs = this.dataService.getFavRand();
     this.randInt = 0;
+    this.categ = this.dataService.getRestCat();
+
   }
 
   ionViewDidLoad() {
@@ -44,8 +47,28 @@ export class WheelPage {
 
     loading.present();
     this.length = this.randFavs.length;
+    //this.length = 0;
     setTimeout(() => this.formWheel(), 2000);
-    //this.getRandInt(0, this.length);
+  }
+
+  presentLoadingCustom2() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'hide',
+      content: `<img src="../../assets/imgs/wheel.gif" />
+    <p>Loading restaurant categories.</p>`,
+      duration: 2000
+    });
+
+    loading.onDidDismiss(() => {
+      console.log('Dismissed loading');
+    });
+
+    loading.present();
+    this.length2 = this.categ.length;
+    //this.length2 = 0;
+    setTimeout(() => this.formWheel3(), 2000);
+      //this.getRandInt(0, this.length);
+
   }
 
   getRandInt(min, max){
@@ -57,19 +80,56 @@ export class WheelPage {
 
   showAlert() {
     let alert = this.alertCtrl.create({
-      title: this.randFavs[this.randInt] + this.length,
+      title: 'Ooops!',
+      message: 'You do not have any favorites yet!',
+      //this.randFavs[this.randInt] + this.length,
       // title: this.randFavs[this.randInt] + this.randInt,
       buttons: ['OK']
     });
     alert.present();
+    this.formWheel2();
   }
 
   formWheel(){
+    //this.randFavs.length=0;
+    if(this.randFavs.length == 0)
+    {
+      setTimeout(() => this.showAlert(), 2000);
+    }
+    else {
+      this.output = "https://wheeldecide.com/e.php?c1=";
+      console.log(this.randFavs.length);
+      for (var i = 0; i < this.randFavs.length; i++) {
+        var j = i + 2;
+        this.output += this.randFavs[i] + '&c' + j + '=';
+      }
+      this.output += "&cols=FDB815,F05127,32A0DB,7FBA44&time=5";
+
+      console.log(this.output);
+      return this.output;
+    }
+  }
+
+  formWheel2(){
     this.output = "https://wheeldecide.com/e.php?c1=";
     console.log(this.randFavs.length);
-    for (var i = 0; i<this.randFavs.length; i++) {
+    for (var i = 0; i<4; i++) {
       var j = i+2;
-      this.output += this.randFavs[i] + '&c' + j + '=';
+      this.output += ' ' + '&c' + j + '=';
+    }
+    this.output += "&cols=FDB815,F05127,32A0DB,7FBA44&time=5";
+
+    console.log(this.output);
+    return this.output;
+
+  }
+
+  formWheel3(){
+    this.output = "https://wheeldecide.com/e.php?c1=";
+    console.log(this.categ.length);
+    for (var i = 0; i<this.categ.length; i++) {
+      var j = i+2;
+      this.output += this.categ[i] + '&c' + j + '=';
     }
     this.output += "&cols=FDB815,F05127,32A0DB,7FBA44&time=5";
 
