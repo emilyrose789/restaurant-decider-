@@ -3,7 +3,6 @@ import { App, ModalController, NavController, NavParams, LoadingController, Aler
 import { Data } from '../../providers/data';
 import { Events } from 'ionic-angular';
 import { FavDetailPage} from '../fav-detail/fav-detail';
-import { SigninPage } from '../signin/signin';
 import { SettingsPage} from "../settings/settings";
 
 @Component({
@@ -17,25 +16,19 @@ export class FavPage {
   randFavs =[];
   length = 0;
   output = '';
- Favs = [];
+  Favs = [];
 
   constructor(public app: App, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public events:Events,public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
     this.items = this.dataService.getFav();
     this.randFavs = this.dataService.getFavRand();
     this.randInt = 0;
-
   }
 
   ionViewDidLoad() {
-
   }
+
   ionViewCanEnter(){
-
-
   }
-
-
-
 
   viewFav(fav) {
     this.navCtrl.push(FavDetailPage, {

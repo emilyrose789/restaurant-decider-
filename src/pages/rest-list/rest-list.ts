@@ -11,10 +11,12 @@ import { SettingsPage} from "../settings/settings";
 export class RestListPage {
   items = [];
   filteredItems = [];
+  categories = [];
 
   constructor(public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
     this.items = this.dataService.getRestList();
     this.filteredItems = this.dataService.getRestList();
+    this.categories = this.dataService.getCategories();
   }
 
   ionViewDidLoad() {

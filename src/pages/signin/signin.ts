@@ -15,7 +15,7 @@ export class SigninPage {
   password: string = '';
   username: string = '';
 
-  constructor(public navCtrl: NavController, data:Data, private loadCtrl: LoadingController, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, data:Data, private alertCtrl: AlertController) {
 
   }
 
