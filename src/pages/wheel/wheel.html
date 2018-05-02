@@ -1,10 +1,15 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>Wheel</ion-title>
-    
+    <ion-buttons end>
+      <button ion-button icon-only (click) = "getSettings()"><ion-icon name="cog"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
+<ion-content  padding class="background" style="padding-top: 15%">
+
+  <iframe [src]="output | safe" width="380" height="380" scrolling="no" frameborder="0"></iframe>
 
 </ion-content>
