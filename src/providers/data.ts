@@ -39,6 +39,24 @@ export class Data {
     return items;
   }
 
+  getRestCat() {
+    const Restaurant = Parse.Object.extend('Restaurant');
+    let query = new Parse.Query(Restaurant);
+    query.limit(1000);
+    var items=[];
+    query.find().then((restaurants) => {
+      for (var i = restaurants.length - 1; i >= 0; i--) {
+          items[i] =restaurants[i].get("category");
+        }
+      return items;
+
+    }, (error) => {
+      console.log("error");
+    });
+
+    return items;
+  }
+
   getFav() {
     const Favorite = Parse.Object.extend('Favorite');
     let query = new Parse.Query(Favorite);
@@ -84,7 +102,6 @@ export class Data {
 
     return items;
   }
-
 
   addToFav(name, address, category, url){
     let fav={
