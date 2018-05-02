@@ -13,7 +13,7 @@
     <label>Category:</label>
     <select [(ngModel)]="categoryfilter" style="width: 33%">
       <option value="category"></option>
-      <option *ngFor="let item of items" value="{{item.category}}">{{item.category}}</option>
+      <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
     </select>
 
     <label>Price:</label>
