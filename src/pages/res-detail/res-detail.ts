@@ -15,17 +15,20 @@ export class ResDetailPage {
   url;
   price;
   userid; 
+  restId;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController, public dataService: Data ) {
 
   }
 
   ionViewDidLoad() {
+    this.restId = this.navParams.get('item').restId;
     this.name = this.navParams.get('item').name;
     this.address = this.navParams.get('item').address; 
     this.category = this.navParams.get('item').category;
     this.url = this.navParams.get('item').url;
     this.price = this.navParams.get('item').price;
+    console.log("restid: " + this.restId);
   }
 
   addToFav(){

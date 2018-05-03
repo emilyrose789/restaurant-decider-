@@ -18,11 +18,14 @@
  <iframe [src]="output | safe" width="100%" height="380" scrolling="no" frameborder="0"></iframe>
 
   <div class="background2">
-    <p style="font-weight: bold; font-size: 20px; color: white;" absolute-drag> Spin the wheel to decide where to eat</p>
-    <p style="font-weight: bold; font-size: 20px; color: white;" absolute-drag> or press below for restaurant categories!!!</p>
+    <p style="font-weight: bold; font-size: 20px; color: white;" absolute-drag> Spin the wheel to decide where to eat based on 
+      <span id= "catText" style="color:orange; font-weight:bold; display: none;">categories </span> 
+      <span id= "favText" style="color:orange; font-weight:bold; display: inline;">favorites</span> 
+    or: </p> 
+
+    <button ion-button id="catButton" class="center" style="width :75%;  margin-left: auto; margin-right: auto; display: block;" color="primary" (click)="presentLoadingCustom2()">CATEGORIES</button>
+
+    <button ion-button id="favButton" class="center" style="width :75%; margin-left: auto; margin-right: auto; display: none;" color="primary" (click)="presentLoadingCustom3()">FAVORITES</button>
   </div>
-
-      <button ion-button class="center" style="width :75% ;  margin-left: auto; margin-right: auto; display: block;" color="primary" (click)="presentLoadingCustom2()">CATEGORIES</button>
-
 
 </ion-content>
