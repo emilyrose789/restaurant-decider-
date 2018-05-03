@@ -72,7 +72,6 @@ export class Data {
     console.log("currentUserId: " + currentUserId);
 
     //get favs for that users id
-
     const Favorite = Parse.Object.extend('Favorite');
     let query = new Parse.Query(Favorite);
     query.limit(1000);
@@ -83,7 +82,7 @@ export class Data {
         //console.log("for loop currentUserId: " + currentUserId);
         //console.log("for loop favsuserid: " + favs[i].get("userID").id);
 
-        if (currentUserId == favs[i].get("userID").id){
+        if (currentUserId == favs[i].get("userId")){
           var myfavs = {
             name:favs[i].get("name"),
             address:favs[i].get("address"),
@@ -103,29 +102,11 @@ export class Data {
     return items;
   }
 
-  getFavRand() {
-    const Favorite = Parse.Object.extend('Favorite');
-    let query = new Parse.Query(Favorite);
-    query.limit(1000);
-    query.include("restaurant");
-    var items=[];
-    query.find().then((favs) => {
-      for (var i = favs.length - 1; i >= 0; i--) {
-
-        items[i] =favs[i].get("name");
-
-      }
-      return items;
-
-    }, (error) => {
-      console.log("error");
-    });
-
-    return items;
-  }
-
   addToFav(name, address, category, url, price){
+    console.log("currentUserId add to fav: " + Parse.User.current().id);
+
     let fav={
+      userId: Parse.User.current().id,
       name: name,
       address: address,
       category: category,
@@ -139,6 +120,7 @@ export class Data {
     var Favorite = Parse.Object.extend("Favorite");
     var f = new Favorite();
 
+    f.set("userId", Parse.User.current().id);
     f.set("name", fav.name);
     f.set("address", fav.address);
     f.set("category", fav.category);
@@ -149,6 +131,7 @@ export class Data {
     f.save(null, {
       success: function(myfav) {
         let newFav = {
+          userId:Parse.User.current().id,
           name:fav.name,
           address:fav.address,
           category:fav.category,
@@ -163,6 +146,29 @@ export class Data {
         alert('Failed to create new object, with error code: ' + error.message);
       }
     });
+  }
+
+  getFavRand() {
+    //get user id
+    var currentUser = Parse.User.current();
+    var currentUserId = currentUser.id;
+
+    const Favorite = Parse.Object.extend('Favorite');
+    let query = new Parse.Query(Favorite);
+    query.limit(1000);
+    query.include("restaurant");
+    var items=[];
+    query.find().then((favs) => {
+      for (var i = favs.length - 1; i >= 0; i--) {
+        if (currentUserId == favs[i].get("userId")){
+          items.push(favs[i].get("name"));
+        }
+      }
+      return items;
+    }, (error) => {
+      console.log("error");
+    });
+    return items;
   }
 
 }
