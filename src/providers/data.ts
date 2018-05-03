@@ -8,6 +8,8 @@ export class Data {
   private parseAppId: string = 'GhAIfNSL3BgpdxjT0rR3ezK93wPIr8GlKu4WegEb';
   private parseJSKey: string='gSVDOxjt13PMQ7575O8QMPF9B2AQVNZm4CFg4fDP'
   private parseServerUrl: string = 'https://parseapi.back4app.com/';
+  //username: string = '';
+  userId: string = '';
 
   constructor(public Storage: Storage,public events:Events){
     Parse.initialize(this.parseAppId, this.parseJSKey);
@@ -22,6 +24,7 @@ export class Data {
     query.find().then((restaurants) => {
       for (var i = restaurants.length - 1; i >= 0; i--) {
          var myrestaurant = {
+            restId:restaurants[i].id,
             name:restaurants[i].get("name"),
             address:restaurants[i].get("address"),
             category:restaurants[i].get("category"),
@@ -62,6 +65,14 @@ export class Data {
   }
 
   getFav() {
+    //get user id
+    var currentUser = Parse.User.current();
+    //var username = currentUser.get("username"));
+    var currentUserId = currentUser.id;
+    console.log("currentUserId: " + currentUserId);
+
+    //get favs for that users id
+
     const Favorite = Parse.Object.extend('Favorite');
     let query = new Parse.Query(Favorite);
     query.limit(1000);
@@ -69,14 +80,19 @@ export class Data {
     var items=[];
     query.find().then((favs) => {
       for (var i = favs.length - 1; i >= 0; i--) {
-         var myfavs = {
-           name:favs[i].get("name"),
-           address:favs[i].get("address"),
-           category:favs[i].get("category"),
-           url:favs[i].get("url"),
-           price:favs[i].get("price")
-         }
-         items.push(myfavs);
+        //console.log("for loop currentUserId: " + currentUserId);
+        //console.log("for loop favsuserid: " + favs[i].get("userID").id);
+
+        if (currentUserId == favs[i].get("userID").id){
+          var myfavs = {
+            name:favs[i].get("name"),
+            address:favs[i].get("address"),
+            category:favs[i].get("category"),
+            url:favs[i].get("url"),
+            price:favs[i].get("price")
+          }
+          items.push(myfavs);
+        }
       }
       return items;
 
@@ -109,7 +125,6 @@ export class Data {
   }
 
   addToFav(name, address, category, url, price){
-
     let fav={
       name: name,
       address: address,

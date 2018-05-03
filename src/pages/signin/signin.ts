@@ -28,6 +28,7 @@ export class SigninPage {
     Parse.User.logIn(this.username, this.password, {
     success: function(user) {
       console.log("logged in "+user.get("username"));
+      //console.log("logged in "+user.id);
       self.navCtrl.setRoot(TabsPage);
     },
     error: function(user, error) {
