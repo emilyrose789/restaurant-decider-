@@ -15,7 +15,7 @@ export class ResDetailPage {
   url;
   price;
   userid; 
-  restID;
+  restId;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController, public dataService: Data ) {
 
