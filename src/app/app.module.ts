@@ -19,6 +19,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Data } from '../providers/data';
 import { SafePipe} from './SafePipe';
+import { Facebook } from '@ionic-native/facebook';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { SafePipe} from './SafePipe';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Data,
-    GooglePlus
+    GooglePlus,
+    Facebook
   ]})
 export class AppModule {}
