@@ -90,4 +90,5 @@
         <variable name="ANDROID_SDK_VERSION" value="4.+" />
     </plugin>
     <engine name="android" spec="7.0.0" />
+    <allow-navigation href="http://10.30.248.184:8100" />
 </widget>

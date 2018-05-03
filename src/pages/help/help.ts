@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FavPage } from '../fav/fav'; 
-
+import { FavPage } from '../fav/fav';
+import { WheelPage } from '../wheel/wheel';
+import {SettingsPage} from "../settings/settings";
 @IonicPage()
 @Component({
   selector: 'page-help',
@@ -17,6 +18,6 @@ export class HelpPage {
   }
 
 goBack(){
-  	    this.navCtrl.setRoot(FavPage); 
+  	    this.navCtrl.setRoot(SettingsPage);
   }
 }

@@ -17,29 +17,30 @@
         <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
       </ion-item>
 
-      <div padding>
+      <div padding >
         <button ion-button color="accent" block>Login</button>
+        <div *ngIf="isLoggedIn; else facebookLogin" style=" position: center">
+          <h2>Hi, {{users.name}} </h2>
+          <p>
+            <img src="{{users.picture.data.url}}" width="100" alt="{{users.name}}" />
+          </p>
+          <p>
+            <button ion-button icon-right (click)="logout()">
+              Logout
+            </button>
+          </p>
+        </div>
+        <ng-template #facebookLogin>
+          <button ion-button icon-right (click)="login()" block>
+            Login with
+            <ion-icon name="logo-facebook"></ion-icon>
+          </button>
+        </ng-template>
         <p style="text-align: center">Don't have an account? <a [navPush]="registerPage">Signup</a></p>
       </div>
 
     </ion-list>
   </form>
 
-    <div *ngIf="isLoggedIn; else facebookLogin">
-      <h2>Hi, {{users.name}} </h2>
-      <p>
-        <img src="{{users.picture.data.url}}" width="100" alt="{{users.name}}" />
-      </p>
-      <p>
-        <button ion-button icon-right (click)="logout()">
-          Logout
-        </button>
-      </p>
-    </div>
-    <ng-template #facebookLogin>
-      <button ion-button icon-right (click)="login()">
-        Login with
-        <ion-icon name="logo-facebook"></ion-icon>
-      </button>
-    </ng-template>
+
   </ion-content>

@@ -4,6 +4,7 @@ import { HelpPage } from '../help/help';
 import { FavPage } from '../fav/fav';
 import { AlertController } from 'ionic-angular';
 import { SigninPage } from '../signin/signin'
+import { WheelPage } from '../wheel/wheel';
 
 @IonicPage()
 @Component({
@@ -23,7 +24,7 @@ export class SettingsPage {
   }
 
   close() {
-    this.navCtrl.setRoot(FavPage);
+    this.navCtrl.setRoot(WheelPage);
   }
 
   presentAlert() {
