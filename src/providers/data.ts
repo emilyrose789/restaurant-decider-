@@ -39,25 +39,6 @@ export class Data {
     return items;
   }
 
-
-  getRestCat() {
-    const Restaurant = Parse.Object.extend('Restaurant');
-    let query = new Parse.Query(Restaurant);
-    query.limit(1000);
-    var items=[];
-    query.find().then((restaurants) => {
-      for (var i = restaurants.length - 1; i >= 0; i--) {
-          items[i] =restaurants[i].get("category");
-        }
-      return items;
-          }, (error) => {
-      console.log("error");
-    });
-
-    return items;
-  }
-
-
   getCategories() {
     const Restaurant = Parse.Object.extend('Restaurant');
     let query = new Parse.Query(Restaurant);
@@ -68,16 +49,7 @@ export class Data {
       for (var i = restaurants.length - 1; i >= 0; i--) {
         if(!items.includes(restaurants[i].get("category"))){
           items.push(restaurants[i].get("category"));
-          console.log("test");
         }
-
-
-        /*(for (var j = items.length - 1; i >= 0; i--){
-          if(items[j] != restaurants[i].get("category")){
-            items.push(restaurants[i].get("category"));
-            console.log("test");
-          }
-        }*/
 
       }
       return items;

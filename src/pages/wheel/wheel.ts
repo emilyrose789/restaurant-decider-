@@ -22,8 +22,7 @@ export class WheelPage {
     this.items = this.dataService.getFav();
     this.randFavs = this.dataService.getFavRand();
     this.randInt = 0;
-    this.categ = this.dataService.getRestCat();
-
+    this.categ = this.dataService.getCategories();
   }
 
   ionViewDidLoad() {
@@ -67,8 +66,67 @@ export class WheelPage {
     this.length2 = this.categ.length;
     //this.length2 = 0;
     setTimeout(() => this.formWheel3(), 2000);
-      //this.getRandInt(0, this.length);
+    //this.getRandInt(0, this.length);
 
+    var favButton = document.getElementById("favButton");
+    var catButton = document.getElementById("catButton");
+    var favText = document.getElementById("favText");
+    var catText = document.getElementById("catText");
+
+    if (catButton.style.display === "none") {
+        catButton.style.display = "block";
+        catText.style.display = "none";
+    } else {
+        catButton.style.display = "none";
+        catText.style.display = "inline";
+    }
+
+    if (favButton.style.display === "none") {
+        favButton.style.display = "block";
+        favText.style.display = "none";
+    } else {
+        favButton.style.display = "none";
+        favText.style.display = "inline";
+    }
+  }
+
+  presentLoadingCustom3() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'hide',
+      content: `<img src="../../assets/imgs/wheel.gif" />
+    <p>Loading your favorite restuarants.</p>`,
+      duration: 2000
+    });
+
+    loading.onDidDismiss(() => {
+      console.log('Dismissed loading');
+    });
+
+    loading.present();
+    this.length = this.randFavs.length;
+    //this.length = 0;
+    setTimeout(() => this.formWheel(), 2000);
+
+    var favButton = document.getElementById("favButton");
+    var catButton = document.getElementById("catButton");
+    var favText = document.getElementById("favText");
+    var catText = document.getElementById("catText");
+
+    if (catButton.style.display === "none") {
+        catButton.style.display = "block";
+        catText.style.display = "none";
+    } else {
+        catButton.style.display = "none";
+        catText.style.display = "inline";
+    }
+
+    if (favButton.style.display === "none") {
+        favButton.style.display = "block";
+        favText.style.display = "none";
+    } else {
+        favButton.style.display = "none";
+        favText.style.display = "inline";
+    }
   }
 
   getRandInt(min, max){
@@ -135,7 +193,6 @@ export class WheelPage {
 
     console.log(this.output);
     return this.output;
-
   }
 
   viewFav(fav) {
