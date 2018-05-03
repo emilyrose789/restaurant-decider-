@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
-import { GooglePlus } from '@ionic-native/google-plus';
 
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
@@ -59,6 +58,5 @@ import { SafePipe} from './SafePipe';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Data,
-    GooglePlus
   ]})
 export class AppModule {}
